@@ -1,7 +1,7 @@
 from django.core.mail import send_mail
 from celery import shared_task
 from time import sleep
-
+from docx2pdf import convert
 
 @shared_task
 def sleepy(duration):
@@ -18,4 +18,9 @@ def send_mail_task():
         ["srjthapa53@gmail.com"],
         fail_silently=False
     )
+    return None
+
+@shared_task
+def convert_doc_to_pdf(file):
+    convert('media/' + file)
     return None
