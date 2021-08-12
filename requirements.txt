@@ -9,6 +9,8 @@ click-plugins==1.1.1
 click-repl==0.2.0
 colorama==0.4.4
 Django==3.2.6
+django-celery-beat==2.2.1
+django-timezone-field==4.2.1
 dnspython==1.16.0
 docx2pdf==0.1.7
 gevent==21.1.2
@@ -16,6 +18,9 @@ greenlet==1.1.0
 kombu==5.1.0
 prompt-toolkit==3.0.19
 pycparser==2.20
+python-crontab==2.5.1
+python-dateutil==2.8.2
+python-decouple==3.4
 pytz==2021.1
 pywin32==227
 redis==3.5.3

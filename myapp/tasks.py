@@ -20,7 +20,20 @@ def send_mail_task():
     )
     return None
 
+
 @shared_task
 def convert_doc_to_pdf(file):
     convert('media/' + file)
+    return None
+
+
+@shared_task
+def mail_monday_motivation_quotes():
+    send_mail(
+        "Stay motivated",
+        "Do not pray for an easy life, pray for the stength to endure difficult one.",
+        "thapasusil53@gmail.com",
+        ["srjthapa53@gmail.com"],
+        fail_silently=False
+    )
     return None

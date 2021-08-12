@@ -6,7 +6,7 @@ from django.core.files.storage import FileSystemStorage
 import os
 from celery.result import AsyncResult
 
-from .task import *
+from .tasks import *
 
 
 def index(request):
