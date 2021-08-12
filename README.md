@@ -1,4 +1,5 @@
 # Django Celery example
+**All tasks are contains inside myapp/tasks.py**
 
 ```python
     
