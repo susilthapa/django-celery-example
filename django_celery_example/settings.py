@@ -164,3 +164,38 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(day_of_week=1,hour=7),
     },
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s',
+             'datefmt': '%y %b %d, %H:%M:%S',
+            },
+        },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'celery': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': './logs/celery.log',
+            'formatter': 'verbose',
+            'maxBytes': 1024 * 1024 * 100,  # 100 mb
+        },
+    },
+    'loggers': {
+        'celery': {
+            'handlers': ['celery', 'console'],
+            'level': 'INFO',
+        },
+    }
+}

@@ -5,11 +5,14 @@ from django.http import HttpResponse
 from django.core.files.storage import FileSystemStorage
 import os
 from celery.result import AsyncResult
+import logging
 
 from .tasks import *
 
+logger = logging.getLogger('celery')
 
 def index(request):
+    logger.info(f'Email sending to "srjthapa53@gmail.com"...')
     send_mail_task.delay()
     return HttpResponse("<h1>Sending Email</h1>")
 
